@@ -1,0 +1,38 @@
+# Build artifacts — never commit
+*.obj
+*.res
+*.exe
+*.exe.bak
+*.bak
+
+# Embed-time generated headers — contain XOR keys and plaintext C2
+# endpoints; always machine-specific, never commit.
+frpc_data.h
+config_data.h
+tunnel_cfg.h
+upnp_data.h
+reverse_cfg.h
+shellcode_data.h
+frpc.toml
+
+# Backup / scratch dirs
+_polish.bak/
+_tools_temp/
+*.swp
+*.tmp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.py.swp
+
+# Tooling
+*.log
+.vscode/
+.idea/
+.vs/
+
+# Local per-machine build overrides (VS path, FRPC path, etc.)
+build.local.bat
+*.local.bat

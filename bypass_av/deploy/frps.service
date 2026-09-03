@@ -1,0 +1,35 @@
+[Unit]
+Description=FRP Server — frps for bypass_av tunnel mode
+Documentation=https://github.com/fatedier/frp
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=nobody
+Group=nogroup
+Environment=FRPS_LOG_LEVEL=info
+Environment=FRPS_LOG_MAX_DAYS=7
+ExecStartPre=/usr/bin/test -x /opt/frp/frps
+ExecStart=/opt/frp/frps -c /opt/frp/frps.toml
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=5s
+LimitNOFILE=1048576
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET,AF_INET6,AF_NETLINK
+RestrictNamespaces=true
+RestrictRealtime=true
+SystemCallArchitectures=native
+
+# Hardening: only the bind ports the configuration needs.
+AmbientCapabilities=
+CapabilityBoundingSet=
+
+[Install]
+WantedBy=multi-user.target

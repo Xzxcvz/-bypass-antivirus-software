@@ -1,0 +1,28 @@
+# Example frps.toml — used with bypass_av's FRP tunnel mode.
+# Edit the bindPort / token / log path / vhostHTTPPort etc. to fit
+# your deployment, then install frps.service (alongside this file).
+
+bindAddr = "0.0.0.0"
+bindPort = 7000
+
+# Authentication token (match this with the frpc side encoded by
+# tools/embed_frp.py).
+auth.method = "token"
+auth.token = "REPLACE_ME_WITH_LONG_RANDOM_TOKEN"
+
+# Web UI (optional, recommended).
+webServer.addr = "127.0.0.1"
+webServer.port = 7500
+webServer.user = "admin"
+webServer.password = "REPLACE_ME_ADMIN_PASSWORD"
+
+# Logging
+log.to = "/var/log/frps.log"
+log.level = "info"
+log.maxDays = 7
+log.disablePrintColor = false
+
+# Tunnels — must mirror what the frpc side is configured for via
+# build.bat frp <VPS_IP> on the Windows compile host.
+# (proxies are configured on the frpc side, not here.  frps only
+# needs to listen on bindPort and authenticate the client.)

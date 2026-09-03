@@ -1,0 +1,37 @@
+name: build-test
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: setup Python (for tests)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: build (plain)
+        shell: cmd
+        run: |
+          cd bypass_av
+          call build.bat plain
+
+      - name: run unit tests
+        shell: cmd
+        run: |
+          call tests\run_tests.bat
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bypass-exe
+          path: bypass_av\bypass.exe
+          if-no-files-found: error

@@ -1,0 +1,36 @@
+#include <windows.h>
+
+#define IDI_ICON 101
+#define RT_MANIFEST 24
+
+IDI_ICON ICON "app.ico"
+1 RT_MANIFEST "bypass.exe.manifest"
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION     10,0,19045,6466
+PRODUCTVERSION  10,0,19045,6466
+FILEFLAGSMASK   0x3FL
+FILEFLAGS       0x0L
+FILEOS          VOS_NT_WINDOWS32
+FILETYPE        VFT_APP
+FILESUBTYPE     0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404B0"
+        BEGIN
+            VALUE "CompanyName", "Microsoft Corporation"
+            VALUE "FileDescription", "Windows Update Assistant"
+            VALUE "FileVersion", "10.0.19045.6466"
+            VALUE "InternalName", "wuauclt"
+            VALUE "LegalCopyright", "(C) Microsoft Corporation. All rights reserved."
+            VALUE "OriginalFilename", "wuauclt.exe"
+            VALUE "ProductName", "Microsoft Windows Operating System"
+            VALUE "ProductVersion", "10.0.19045.6466"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0804, 0x04B0
+    END
+END
