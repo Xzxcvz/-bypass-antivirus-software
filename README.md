@@ -350,7 +350,7 @@ tests\run_tests.bat
 
 ## 六、部署教程（选一种模式）
 
-详细图文 step-by-step 见 [`操作教程.md`](./操作教程.md)。这里是浓缩版。
+详细图文 step-by-step 见 [`操作教程.md`](./bypass_av/操作教程.md)。这里是浓缩版。
 
 ### 6.1 模式 A：bind shell（同网段，最简单）
 
@@ -876,7 +876,7 @@ ufw delete allow 4444/tcp
 
 ## 十一、变更日志
 
-完整 change log 见 [`POLISH_REPORT.md`](./POLISH_REPORT.md) 和 [`CODE_AUDIT.md`](./CODE_AUDIT.md)。
+完整 change log 见 [`POLISH_REPORT.md`](./bypass_av/POLISH_REPORT.md) 和 [`CODE_AUDIT.md`](./bypass_av/CODE_AUDIT.md)。
 
 **当前 v4 状态**（stable）：
 
@@ -941,4 +941,4 @@ PS> whoami
 
 ---
 
-**项目根 [README.md](../../README.md)** · **架构 [HANDOVER.md →](./HANDOVER.md)** · **教程 [操作教程.md →](./操作教程.md)**
+**原始逆向分析 [payload_analysis.md →](./payload_analysis.md)** · **架构 [HANDOVER.md →](./bypass_av/HANDOVER.md)** · **教程 [操作教程.md →](./bypass_av/操作教程.md)**
